@@ -6,11 +6,23 @@
 // URL -> URL
 const normalize = u => {
 	let p = u.split('/');
-	return p
-		.filter((e,i) => p[i+1]!='..')
-		.filter(e => e!='..' && e!='.' && e!='')
+	return new Array(leadingRelativePaths(u))
+		.fill('..')
+		.concat(p
+			.filter((e,i) => p[i+1]!='..')
+			.filter(e => e!='..' && e!='.' && e!='')
+		)
 		.join('/')
 }
+
+const leadingRelativePaths = u => u
+	.split('/')
+	.filter(e => e!='')
+	.indexOf(u
+		.split('/')
+		.filter(e => e!='')
+		.find(e => e!='..')
+)
 
 // [URL] -> URL
 const join = (...u) => normalize(u.join('/'))
