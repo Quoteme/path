@@ -9,6 +9,6 @@ for use as a module in your browser
 | resolve | ❌ |
 | isAbsolute | ✅ |
 | relative | ❌ |
-| dirname | ❌ |
-| basename | ❌ |
-| extname | ❌ |
+| dirname | ✅ |
+| basename | ✅ |
+| extname | ✅ |
